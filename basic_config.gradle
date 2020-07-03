@@ -1,0 +1,88 @@
+apply plugin: 'kotlin-kapt'
+apply from: "${rootDir}/versions.gradle"
+
+android {
+
+    compileSdkVersion build_versions.compileSdkVersion
+    buildToolsVersion build_versions.buildToolsVersion
+
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+
+
+    buildFeatures {
+        dataBinding = true
+    }
+
+    defaultConfig {
+
+        kapt {
+            arguments {
+                arg("AROUTER_MODULE_NAME", project.getName())
+                arg("room.schemaLocation", "$projectDir/schemas")
+            }
+        }
+
+    }
+
+
+}
+
+dependencies {
+
+    testImplementation deps.test.junit
+    androidTestImplementation deps.test.android_junit
+    androidTestImplementation deps.test.android_espresso
+
+    implementation deps.appcompat
+    implementation deps.androidx_core
+    implementation deps.kotlin.stdlib
+
+
+    //koin
+    implementation deps.koin.core
+    implementation deps.koin.core_ext
+    implementation deps.koin.viewmodel
+    implementation deps.koin.fragment
+    implementation deps.koin.androidx_core
+    implementation deps.koin.androidx_ext
+
+    //lifecycle
+    implementation deps.lifecycle.viewmodel
+    implementation deps.lifecycle.livedata
+    implementation deps.lifecycle.runtime
+    kapt deps.lifecycle.kapt_compiler
+
+    //room
+    implementation deps.room.runtime
+    implementation deps.room.ktx
+    kapt deps.room.compiler
+
+    //coroutine
+    implementation deps.coroutine.core
+    implementation deps.coroutine.android
+
+    //arouter
+    implementation deps.arouter.api
+    kapt deps.arouter.compiler
+
+    implementation deps.navigation.fragment_ktx
+    implementation deps.navigation.ui_ktx
+
+    implementation deps.constraintlayout
+    implementation deps.material
+
+    implementation deps.timber
+
+
+}

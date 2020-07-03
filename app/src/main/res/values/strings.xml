@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">BasicTemplate</string>
+    <string name="login_succeed">Login succeed</string>
+    <string name="login_failed">Login failed</string>
+    <string name="login_empty_account">Please input account</string>
+    <string name="login_empty_pwd">Please input pwd</string>
+</resources>

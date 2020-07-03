@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.b57.basictemplate.ui.contact.list.ListViewModel" />
+        <variable
+            name="adapter"
+            type="androidx.recyclerview.widget.RecyclerView.Adapter" />
+    </data>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        onRefresh="@{vm::onRefresh}"
+        pagingStatus="@{vm.loadStatusLiveData}">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/contactListRcv"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            adapter="@{adapter}"
+            submitList="@{vm.contactLiveData}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</layout>
