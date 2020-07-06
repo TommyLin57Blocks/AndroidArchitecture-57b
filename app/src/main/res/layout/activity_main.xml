@@ -25,4 +25,9 @@
         android:layout_height="wrap_content"
         android:text="room sample" />
 
+    <Button
+        android:id="@+id/recyclerBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Recycler Binding sample" />
 </LinearLayout>

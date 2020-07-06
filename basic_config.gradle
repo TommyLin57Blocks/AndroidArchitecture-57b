@@ -41,6 +41,7 @@ android {
 dependencies {
 
     testImplementation deps.test.junit
+    testImplementation deps.test.androidx_core
     androidTestImplementation deps.test.android_junit
     androidTestImplementation deps.test.android_espresso
 
@@ -71,6 +72,7 @@ dependencies {
     //coroutine
     implementation deps.coroutine.core
     implementation deps.coroutine.android
+    testImplementation deps.coroutine.test
 
     //arouter
     implementation deps.arouter.api
@@ -83,6 +85,8 @@ dependencies {
     implementation deps.material
 
     implementation deps.timber
+
+    implementation deps.live_event_bus
 
 
 }

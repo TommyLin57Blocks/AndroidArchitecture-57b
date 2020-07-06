@@ -29,5 +29,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        recyclerBtn.setOnClickListener {
+            val intent = Intent().apply {
+                data = Uri.parse("b57://app/recycler")
+            }
+            startActivity(intent)
+        }
+
     }
 }

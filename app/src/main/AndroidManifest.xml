@@ -18,11 +18,27 @@
             </intent-filter>
         </activity>
         <activity android:name="com.b57.basictemplate.ui.login.LoginActivity" />
-        <activity android:name=".ui.contact.ContactActivity" >
-            <nav-graph android:value="@navigation/contact_navigation"/>
+        <activity android:name=".ui.contact.ContactActivity">
+            <nav-graph android:value="@navigation/contact_navigation" />
         </activity>
-        <activity android:name=".ui.room.RoomSampleActivity" >
-            <nav-graph android:value="@navigation/room_navigation"/>
+        <activity android:name=".ui.room.RoomSampleActivity">
+            <nav-graph android:value="@navigation/room_navigation" />
+        </activity>
+        <activity android:name=".ui.recycler_bind.RecyclerBindActivity">
+            <intent-filter>
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="b57" />
+
+                <data android:host="app" />
+
+                <data android:path="/recycler" />
+            </intent-filter>
         </activity>
     </application>
 

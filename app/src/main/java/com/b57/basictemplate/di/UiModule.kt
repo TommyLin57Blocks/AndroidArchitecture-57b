@@ -4,6 +4,7 @@ import androidx.room.Room
 import com.b57.basictemplate.ui.contact.list.ListViewModel
 import com.b57.basictemplate.ui.login.LoginViewModel
 import com.b57.basictemplate.data.database.DataBase
+import com.b57.basictemplate.ui.recycler_bind.RecyclerViewModel
 import com.b57.basictemplate.ui.room.EntryEditViewModel
 import com.b57.basictemplate.ui.room.EntryListViewModel
 import org.koin.android.ext.koin.androidApplication
@@ -33,5 +34,8 @@ val uiModule = module {
         )
     }
 
+    viewModel {
+        RecyclerViewModel()
+    }
 
 }
