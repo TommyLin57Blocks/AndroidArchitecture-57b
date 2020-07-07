@@ -60,7 +60,7 @@ class LoginViewModelTest {
     fun loginSucceed() {
         viewModel.account.value = CORRECT_ACCOUNT
         viewModel.pwd.value = CORRECT_PWD
-        val observeResult = viewModel.loginSucceedLiveData.assertValues(2) { index, data ->
+        val observeResult = viewModel.loginResult.assertValues(2) { index, data ->
             when (index) {
                 0 -> data == Result.Loading
                 1 -> data is Result.Success
@@ -69,7 +69,7 @@ class LoginViewModelTest {
         }
         viewModel.login()
         observeResult.first.await()
-        viewModel.loginSucceedLiveData.removeObserver(observeResult.second)
+        viewModel.loginResult.removeObserver(observeResult.second)
         assert(viewModel.toastEvent.getOrAwaitValue().peekContent() == R.string.login_succeed)
     }
 
@@ -77,7 +77,7 @@ class LoginViewModelTest {
     fun loginFailed() {
         viewModel.account.value = "2222"
         viewModel.pwd.value = CORRECT_PWD
-        val observeResult = viewModel.loginSucceedLiveData.assertValues(2) { index, data ->
+        val observeResult = viewModel.loginResult.assertValues(2) { index, data ->
             when (index) {
                 0 -> data == Result.Loading
                 1 -> data is Result.Error
@@ -86,7 +86,7 @@ class LoginViewModelTest {
         }
         viewModel.login()
         observeResult.first.await()
-        viewModel.loginSucceedLiveData.removeObserver(observeResult.second)
+        viewModel.loginResult.removeObserver(observeResult.second)
         assert(viewModel.toastEvent.getOrAwaitValue().peekContent() == R.string.login_failed)
     }
 
