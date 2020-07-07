@@ -4,6 +4,7 @@ import android.app.Application
 import com.b57.basictemplate.di.dataModule
 import com.b57.basictemplate.di.domainModule
 import com.b57.architecture.log.ErrorDebugTree
+import com.b57.basictemplate.di.appModule
 import com.b57.basictemplate.di.uiModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
@@ -19,6 +20,7 @@ class B57App : Application() {
         startKoin {
             androidContext(this@B57App)
             modules(
+                appModule,
                 dataModule,
                 domainModule,
                 uiModule

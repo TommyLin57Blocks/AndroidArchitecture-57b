@@ -21,6 +21,7 @@ versions.swipe_refresh_layout = "1.1.0"
 versions.paging = "2.1.2"
 versions.live_event_bus = "1.7.2"
 versions.androidx_test_core = "2.1.0"
+versions.okhttp_log = "4.7.2"
 ext.versions = versions
 
 def build_versions = [:]
@@ -105,4 +106,5 @@ deps.material = "com.google.android.material:material:$versions.material"
 deps.timber = "com.jakewharton.timber:timber:$versions.timber"
 deps.swipe_refresh_layout = "androidx.swiperefreshlayout:swiperefreshlayout:$versions.swipe_refresh_layout"
 deps.live_event_bus = "com.jeremyliao:live-event-bus-x:$versions.live_event_bus"
+deps.okhttp_log = "com.squareup.okhttp3:logging-interceptor:$versions.okhttp_log"
 ext.deps = deps

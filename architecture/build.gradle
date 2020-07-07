@@ -20,6 +20,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField("Boolean", "ENABLE_MOCK_API", "false")
+        }
+        debug {
+            buildConfigField("Boolean", "ENABLE_MOCK_API", "true")
         }
     }
 }

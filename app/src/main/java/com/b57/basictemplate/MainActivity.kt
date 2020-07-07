@@ -36,5 +36,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        okhttpBtn.setOnClickListener {
+            val intent = Intent().apply {
+                data = Uri.parse("b57://app/httpdemo")
+            }
+            startActivity(intent)
+        }
+
     }
 }

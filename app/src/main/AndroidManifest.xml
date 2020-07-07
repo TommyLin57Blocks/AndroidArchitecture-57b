@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.b57.basictemplate">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:name=".B57App"
         android:allowBackup="true"
@@ -38,6 +39,22 @@
                 <data android:host="app" />
 
                 <data android:path="/recycler" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.okhttp.HttpDemoActivity" >
+            <intent-filter>
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="b57" />
+
+                <data android:host="app" />
+
+                <data android:path="/httpdemo" />
             </intent-filter>
         </activity>
     </application>

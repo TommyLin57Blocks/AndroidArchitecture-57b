@@ -88,5 +88,6 @@ dependencies {
 
     implementation deps.live_event_bus
 
+    implementation deps.okhttp_log
 
 }
