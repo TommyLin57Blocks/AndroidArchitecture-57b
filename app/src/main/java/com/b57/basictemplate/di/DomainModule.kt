@@ -1,9 +1,9 @@
 package com.b57.basictemplate.di
 
-import com.b57.basictemplate.domain.FetchContactByNetwork
-import com.b57.basictemplate.domain.LoginByPasswordUseCase
-import com.b57.basictemplate.domain.ObserveRoomEntities
-import com.b57.basictemplate.domain.SaveRoomEntry
+import com.b57.basictemplate.domain.okhttp.FetchContactByNetwork
+import com.b57.basictemplate.domain.login.LoginByPasswordUseCase
+import com.b57.basictemplate.domain.room.ObserveRoomEntities
+import com.b57.basictemplate.domain.room.SaveRoomEntry
 import org.koin.dsl.module
 
 val domainModule = module {

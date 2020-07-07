@@ -1,4 +1,4 @@
-package com.b57.basictemplate.ui.room
+package com.b57.basictemplate.ui.room.list
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,6 +15,9 @@ import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_room_entry.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
+/**
+ * room list page
+ */
 class EntryListFragment : BindingFragment<FragmentEntryListBinding>() {
 
     private val viewModel: EntryListViewModel by viewModel()

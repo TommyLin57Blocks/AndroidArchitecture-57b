@@ -1,21 +1,19 @@
 package com.b57.basictemplate.di
 
-import androidx.room.Room
 import com.b57.basictemplate.ui.contact.list.ListViewModel
 import com.b57.basictemplate.ui.login.LoginViewModel
-import com.b57.basictemplate.data.database.DataBase
+import com.b57.basictemplate.domain.login.LoginByPasswordUseCase
 import com.b57.basictemplate.ui.okhttp.HttpDemoViewModel
 import com.b57.basictemplate.ui.recycler_bind.RecyclerViewModel
-import com.b57.basictemplate.ui.room.EntryEditViewModel
-import com.b57.basictemplate.ui.room.EntryListViewModel
-import org.koin.android.ext.koin.androidApplication
+import com.b57.basictemplate.ui.room.edit.EntryEditViewModel
+import com.b57.basictemplate.ui.room.list.EntryListViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val uiModule = module {
-    viewModel {
+    viewModel<LoginViewModel> {
         LoginViewModel(
-            loginByPwd = get()
+            loginByPwd = get<LoginByPasswordUseCase>()
         )
     }
 

@@ -1,4 +1,4 @@
-package com.b57.basictemplate.ui.contact
+package com.b57.basictemplate.ui.contact.detail
 
 import com.b57.architecture.base.BaseFragment
 import com.b57.basictemplate.R

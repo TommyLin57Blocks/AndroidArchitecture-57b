@@ -15,7 +15,7 @@
 
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.b57.basictemplate.ui.contact.DetailFragment"
+        android:name="com.b57.basictemplate.ui.contact.detail.DetailFragment"
         android:label="DetailFragment" >
         <deepLink app:uri="b57://app/contact/detail"/>
     </fragment>

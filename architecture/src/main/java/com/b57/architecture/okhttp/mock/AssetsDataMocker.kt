@@ -11,10 +11,20 @@ import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.lang.reflect.Method
 
+/**
+ * Mock api response from assets
+ */
 class AssetsDataMocker : IDataMocker, KoinComponent {
 
+    /**
+     * key : api url
+     * value : path of mock file in assets
+     */
     private val mockMap = mutableMapOf<String, String>()
 
+    /**
+     * find all AssetsMock info of mockClass
+     */
     override fun setupMockApi(mockClass: Class<*>) {
         mockClass.methods.forEach { method ->
             val mock = method.getAnnotation(AssetsMock::class.java)
@@ -33,20 +43,23 @@ class AssetsDataMocker : IDataMocker, KoinComponent {
     }
 
     override fun mock(request: Request): String {
-        val url = request.url.toUri().path
-        val path = mockMap[url]
-        if (path.isNullOrEmpty()) {
+        val urlPath = request.url.toUri().path
+        val mockPath = mockMap[urlPath]
+        if (mockPath.isNullOrEmpty()) {
             return ""
         }
-        return readAssets(path)
+        return readAssets(mockPath)
     }
 
-    private fun readAssets(path: String): String {
+    /**
+     * read assets file as mock response
+     */
+    private fun readAssets(mockPath: String): String {
         val assets: AssetManager = get(AssetManager::class.java)
         var reader: BufferedReader? = null
         val content = StringBuilder()
         try {
-            reader = BufferedReader(InputStreamReader(assets.open(path)))
+            reader = BufferedReader(InputStreamReader(assets.open(mockPath)))
             var line: String?
             while (reader.readLine().also { line = it } != null) {
                 content.append(line)
@@ -60,6 +73,9 @@ class AssetsDataMocker : IDataMocker, KoinComponent {
     }
 
 
+    /**
+     * get request url of retrofit method
+     */
     private fun getOkHttpUrl(method: Method): String {
         val get = method.getAnnotation(GET::class.java)
         if (get != null) {

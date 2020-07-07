@@ -4,7 +4,7 @@
     <data>
         <variable
             name="vm"
-            type="com.b57.basictemplate.ui.room.EntryEditViewModel" />
+            type="com.b57.basictemplate.ui.room.edit.EntryEditViewModel" />
     </data>
 
     <LinearLayout

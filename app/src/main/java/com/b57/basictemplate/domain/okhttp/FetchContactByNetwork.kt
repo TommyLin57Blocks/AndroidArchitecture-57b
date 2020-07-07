@@ -1,4 +1,4 @@
-package com.b57.basictemplate.domain
+package com.b57.basictemplate.domain.okhttp
 
 import com.b57.basictemplate.data.api.TestApi
 import com.b57.basictemplate.data.entities.Contact

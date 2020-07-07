@@ -7,6 +7,10 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 
+/**
+ * Base fragment for databinding
+ * BD : viewDataBinding of xml
+ */
 abstract class BindingFragment<BD : ViewDataBinding> : BaseFragment() {
 
     protected lateinit var viewDb : BD

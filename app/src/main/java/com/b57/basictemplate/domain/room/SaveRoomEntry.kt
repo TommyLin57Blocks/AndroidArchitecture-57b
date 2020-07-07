@@ -1,4 +1,4 @@
-package com.b57.basictemplate.domain
+package com.b57.basictemplate.domain.room
 
 import com.b57.basictemplate.data.database.RoomDao
 import com.b57.basictemplate.data.entities.RoomEntry

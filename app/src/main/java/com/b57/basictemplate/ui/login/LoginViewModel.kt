@@ -1,26 +1,39 @@
 package com.b57.basictemplate.ui.login
 
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.map
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.b57.basictemplate.R
-import com.b57.basictemplate.domain.LoginByPasswordUseCase
+import com.b57.basictemplate.domain.login.LoginByPasswordUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import com.b57.architecture.Result
 import com.b57.architecture.succeeded
 import com.b57.architecture.LiveEvent
+import com.b57.architecture.ext.mapWithDefaultValue
 
-class LoginViewModel(
+class LoginViewModel constructor(
     private val loginByPwd: LoginByPasswordUseCase
 ) : ViewModel() {
 
     val account = MutableLiveData<String>()
     val pwd = MutableLiveData<String>()
+
+    /**
+     * login result live Data
+     * Succeed ,
+     * Error
+     * Loading
+     */
     val loginResult = MutableLiveData<Result<Unit>>()
+
+    /**
+     * Toast event live data
+     */
     val toastEvent = MutableLiveData<LiveEvent<Int>>()
-    val loadingEvent = loginResult.map {
+
+    /**
+     * Loading event live data
+     */
+    val loadingEvent = loginResult.mapWithDefaultValue(false) {
         it is Result.Loading
     }
 

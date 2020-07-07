@@ -12,6 +12,9 @@ import timber.log.Timber
 
 object ApiClientFactory {
 
+    /**
+     * build a retrofit
+     */
     fun <T> build(
         baseUrl: String,
         clazz: Class<T>,
@@ -25,20 +28,26 @@ object ApiClientFactory {
             .create(clazz)
     }
 
+    /**
+     * create a okHttpClient
+     * if mock api is enabled, add dataMocker for okHttpClient
+     */
     private fun <T> createOkHttpClient(clazz: Class<T>, iDataMocker: IDataMocker): OkHttpClient {
         val builder = OkHttpClient.Builder()
             .addInterceptor(
-                HttpLoggingInterceptor(object : HttpLoggingInterceptor.Logger {
-                    override fun log(message: String) {
-                        Timber.tag("b57-http").d(message)
+                HttpLoggingInterceptor(
+                    object : HttpLoggingInterceptor.Logger {
+                        override fun log(message: String) {
+                            Timber.tag("b57-http").d(message)
+                        }
                     }
-                }).apply {
+                ).apply {
                     level = HttpLoggingInterceptor.Level.BODY
                 }
             )
-
         if (BuildConfig.ENABLE_MOCK_API) {
-            builder.addInterceptor(MockInterceptor(clazz, iDataMocker))
+            iDataMocker.setupMockApi(clazz)
+            builder.addInterceptor(MockInterceptor(iDataMocker))
         }
         return builder.build()
     }

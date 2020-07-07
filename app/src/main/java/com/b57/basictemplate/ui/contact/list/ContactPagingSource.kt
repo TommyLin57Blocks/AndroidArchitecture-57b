@@ -11,9 +11,14 @@ import kotlinx.coroutines.launch
 import timber.log.Timber
 
 
+/**
+ * paging source for contact list
+ */
 class ContactPagingSource :
     PageKeyedDataSource<Int, Contact>() {
+
     val statusLiveData = MutableLiveData<PagingSourceStatus>()
+
     override fun loadInitial(
         params: LoadInitialParams<Int>,
         callback: LoadInitialCallback<Int, Contact>

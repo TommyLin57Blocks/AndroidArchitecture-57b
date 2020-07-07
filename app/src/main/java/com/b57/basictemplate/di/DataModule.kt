@@ -24,7 +24,7 @@ val dataModule = module {
         get<DataBase>().roomDao()
     }
 
-    single {
+    single<TestApi> {
         ApiClientFactory.build("http://192.168.180.38:8080", TestApi::class.java)
     }
 

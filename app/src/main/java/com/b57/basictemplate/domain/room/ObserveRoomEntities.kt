@@ -1,4 +1,4 @@
-package com.b57.basictemplate.domain
+package com.b57.basictemplate.domain.room
 
 import androidx.lifecycle.LiveData
 import com.b57.basictemplate.data.database.RoomDao

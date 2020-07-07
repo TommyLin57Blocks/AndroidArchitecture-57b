@@ -27,8 +27,9 @@ import androidx.recyclerview.widget.RecyclerView
 import java.util.*
 
 /**
- * @author KunMinX
- * Create at 2018/6/30
+ * Binding for RecyclerView
+ * M : Data class
+ * B : ViewDataBinding of viewholder's itemview
  */
 abstract class BaseDataBindingAdapter<M, B : ViewDataBinding?>(diffCallback: DiffUtil.ItemCallback<M>) :
     ListAdapter<M, RecyclerView.ViewHolder>(diffCallback) {

@@ -7,6 +7,9 @@ import com.b57.basictemplate.R
 import com.b57.basictemplate.databinding.FragmentRecyclerBindBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
+/**
+ * Binding recyclerView Demo Page
+ */
 class RecyclerBindActivity: BindingActivity<FragmentRecyclerBindBinding>() {
 
     private val viewModel : RecyclerViewModel by viewModel()

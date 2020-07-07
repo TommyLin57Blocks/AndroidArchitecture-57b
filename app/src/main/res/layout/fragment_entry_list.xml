@@ -6,11 +6,11 @@
 
         <variable
             name="adapter"
-            type="com.b57.basictemplate.ui.room.EntryAdapter" />
+            type="com.b57.basictemplate.ui.room.list.EntryAdapter" />
 
         <variable
             name="vm"
-            type="com.b57.basictemplate.ui.room.EntryListViewModel" />
+            type="com.b57.basictemplate.ui.room.list.EntryListViewModel" />
     </data>
 
     <FrameLayout

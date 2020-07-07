@@ -7,14 +7,14 @@
 
     <fragment
         android:id="@+id/entryListFragment"
-        android:name="com.b57.basictemplate.ui.room.EntryListFragment"
+        android:name="com.b57.basictemplate.ui.room.list.EntryListFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="4" />
 
     <fragment
         android:id="@+id/entryEditFragment"
-        android:name="com.b57.basictemplate.ui.room.EntryEditFragment"
+        android:name="com.b57.basictemplate.ui.room.edit.EntryEditFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 </LinearLayout>

@@ -4,6 +4,10 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 
+/**
+ * Base activity for databinding
+ * BD : viewDataBinding of xml
+ */
 abstract class BindingActivity<BD : ViewDataBinding> : BaseActivity() {
 
     protected lateinit var viewDb : BD

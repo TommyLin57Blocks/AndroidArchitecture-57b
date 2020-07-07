@@ -7,14 +7,14 @@ import com.b57.basictemplate.R
 import com.b57.architecture.base.BindingActivity
 import com.b57.basictemplate.databinding.ActivityLoginBinding
 import com.b57.architecture.EventObserver
+import com.b57.architecture.succeeded
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginActivity : BindingActivity<ActivityLoginBinding>() {
 
     private val viewModel: LoginViewModel by viewModel()
 
-    override val layoutId: Int
-        get() = R.layout.activity_login
+    override val layoutId = R.layout.activity_login
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +27,10 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>() {
             Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
         })
         viewModel.loginResult.observe(this, Observer {
-            finish()
+            //finish when login succeed
+            if (it.succeeded) {
+                finish()
+            }
         })
     }
 

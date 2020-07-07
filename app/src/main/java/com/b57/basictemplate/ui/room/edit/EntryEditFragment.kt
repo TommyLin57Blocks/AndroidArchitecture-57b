@@ -1,4 +1,4 @@
-package com.b57.basictemplate.ui.room
+package com.b57.basictemplate.ui.room.edit
 
 import android.os.Bundle
 import android.view.View
@@ -7,6 +7,9 @@ import com.b57.architecture.base.BindingFragment
 import com.b57.basictemplate.databinding.FragmentEntryEditBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
+/**
+ * Edit room content
+ */
 class EntryEditFragment : BindingFragment<FragmentEntryEditBinding>() {
 
     private val viewModel : EntryEditViewModel by viewModel()

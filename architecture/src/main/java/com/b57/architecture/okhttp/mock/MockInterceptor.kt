@@ -5,20 +5,14 @@ import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.Protocol
 import okhttp3.Response
 import okhttp3.ResponseBody.Companion.toResponseBody
-import retrofit2.http.GET
-import retrofit2.http.POST
-import timber.log.Timber
-import java.lang.reflect.Method
 
-class MockInterceptor(mockClass: Class<*>, private val iDataMocker: IDataMocker) :
-    Interceptor {
-
-    init {
-        iDataMocker.setupMockApi(mockClass)
-    }
+class MockInterceptor(private val iDataMocker: IDataMocker) : Interceptor {
 
     override fun intercept(chain: Interceptor.Chain): Response {
+
         val responseContent = iDataMocker.mock(request = chain.request())
+
+        // If no mock data, request by next interceptor
         if (responseContent.isEmpty()) {
             return chain.proceed(chain.request())
         }

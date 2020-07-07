@@ -8,7 +8,7 @@ import com.b57.basictemplate.databinding.FragmentContactListBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
- * 联系人列表页面，使用Paging分页
+ * contact list page, using paging lib
  */
 class ListFragment : BindingFragment<FragmentContactListBinding>() {
 

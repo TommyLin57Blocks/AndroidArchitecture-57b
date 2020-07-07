@@ -6,7 +6,7 @@ import com.b57.basictemplate.data.entities.Contact
 
 class RecyclerViewModel : ViewModel() {
 
-    val contacts = liveData<List<Contact>> {
+    val contacts = liveData {
         emit((1..30).toList().map {
             Contact(
                 "Page 1 Name - $it",
